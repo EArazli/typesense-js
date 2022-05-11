@@ -48,6 +48,11 @@ export default class ApiCall {
     this.logger = this.configuration.logger
 
     this.initializeMetadataForNodes()
+
+    if (configuration.axiosAdapter){
+      axios.defaults.adapter = configuration.axiosAdapter
+    }
+
     this.currentNodeIndex = -1
   }
 

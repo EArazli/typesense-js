@@ -35,6 +35,7 @@ export interface ConfigurationOptions {
 
   logLevel?: logger.LogLevelDesc
   logger?: any //todo
+  axiosAdapter?: any
 }
 
 export default class Configuration {
@@ -51,6 +52,7 @@ export default class Configuration {
   readonly logger: any
   readonly logLevel: any
   readonly additionalHeaders: Record<string, string>
+  readonly axiosAdapter: any
 
   constructor(options: ConfigurationOptions) {
     this.nodes = options.nodes || []
@@ -77,6 +79,7 @@ export default class Configuration {
     this.logger.setLevel(this.logLevel)
 
     this.additionalHeaders = options.additionalHeaders
+    this.axiosAdapter = options.axiosAdapter
 
     this.showDeprecationWarnings(options)
     this.validate()

@@ -31,6 +31,7 @@ export interface ConfigurationOptions {
     additionalHeaders?: Record<string, string>;
     logLevel?: logger.LogLevelDesc;
     logger?: any;
+    axiosAdapter?: any;
 }
 export default class Configuration {
     readonly nodes: NodeConfiguration[];
@@ -46,6 +47,7 @@ export default class Configuration {
     readonly logger: any;
     readonly logLevel: any;
     readonly additionalHeaders: Record<string, string>;
+    readonly axiosAdapter: any;
     constructor(options: ConfigurationOptions);
     validate(): boolean;
     private validateNodes;
